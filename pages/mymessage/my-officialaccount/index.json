@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "公众号",
+  "usingComponents": {
+    "t-image": "tdesign-miniprogram/image/image"
+  }
+}

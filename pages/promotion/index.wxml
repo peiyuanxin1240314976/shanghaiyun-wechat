@@ -1,0 +1,60 @@
+<view class="promotionInner">
+  <view class="promotionImg">
+    <t-image src="{{imageSrc}}" mode="heightFix" width="100" height="130" aria-label="推广" />
+  </view>
+  <view class="title align">
+    推广海报
+  </view>
+  <view class="proview align">
+    点击海报 预览大图
+  </view>
+
+<view class="swiperBody">
+  <!-- 添加一个隐藏的画布用于图片合成 -->
+  <canvas 
+    canvas-id="compositeCanvas" 
+    style="position: absolute; left: -9999px; width: 1000px; height: 1000px;"
+  ></canvas>
+
+  <t-swiper
+    class="scale-card-theme"
+    current="{{current}}"
+    autoplay="{{autoplay}}"
+    duration="{{duration}}"
+    interval="{{interval}}"
+    bindchange="onChange"
+    navigation="{{ { type: 'dots' } }}"
+    list="{{swiperList}}"
+    image-props="{{ { shape: 'round' } }}"
+    previousMargin="120px"
+    nextMargin="120px"
+    t-class-nav="card-theme-nav"
+    t-class-image="scale-candidate-active"
+    t-class-prev-image="scale-candidate"
+    t-class-next-image="scale-candidate"
+  />
+</view>
+
+<view class="flexCenter operation mt3">
+  <view class="operation-item" bindtap="copyLink">
+    <image style="width:27px;height:27px;" src="{{link}}"></image>
+    <text>复制链接</text>
+  </view>
+  
+  <view class="operation-item" bindtap="savePoster">
+    <image style="width:27px;height:27px;" src="{{tu}}"></image>
+    <text>保存海报</text>
+  </view>
+  
+  <view class="operation-item" bindtap="showShare" data-type="friend">
+    <image style="width:27px;height:27px;" src="{{weixin}}"></image>
+    <text>分享好友</text>
+  </view>
+  
+  <view class="operation-item" bindtap="showShare" data-type="timeline">
+    <image style="width:27px;height:27px;" src="{{pengyouquan}}"></image>
+    <text>发朋友圈</text>
+  </view>
+</view>
+
+</view>

@@ -1,0 +1,20 @@
+.wrapper {
+  --td-tab-bar-border-color: var(--td-border-level-1-color, #e7e7e7);
+  --td-tab-bar-bg-color: var(--td-bg-color-primary, #335ef7);
+  --td-tab-bar-hover-color: #ddd;
+  --td-tab-bar-item-color: var(--td-text-color-primary, rgba(255, 255, 255, 0.9));
+  --td-tab-bar-active-color:#fff !important;
+}
+/* .t-tab-bar-item__content--checked{
+  color: #fff !important;
+} */
+
+.custom-tab-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-tab-bar-wrapper .text {
+  font-size: 20rpx;
+}

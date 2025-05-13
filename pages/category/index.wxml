@@ -1,0 +1,52 @@
+<view class="releaseWrap">
+  <view class="releaseImg">
+    <t-image src="{{imageSrc}}" mode="heightFix" width="100" height="130" aria-label="发布群" />
+  </view>
+  <!-- 通知栏 -->
+  <view class="noticeRow">
+    <t-notice-bar visible="{{true}}" prefixIcon="notification-filled" content="提示文字描述提示文字描述提示文字描述" t-class="external-class" t-class-prefix-icon="external-class-prefix-icon"></t-notice-bar>
+  </view>
+  <!-- form表单 -->
+  <view>
+    <t-input label="群名称" placeholder="请输入（推荐区域名称+关键词）" />
+
+    <t-cell title="群所属区域" arrow hover note="{{areaText}}" bind:click="onAreaPicker" />
+    <t-picker visible="{{areaVisible}}" value="{{areaValue}}" title="选择地区" cancelBtn="取消" confirmBtn="确认" usingCustomNavbar bindchange="onPickerChange" bindpick="onColumnChange" bindcancel="onPickerCancel">
+      <t-picker-item options="{{provinces}}"></t-picker-item>
+      <t-picker-item options="{{cities}}"></t-picker-item>
+      <t-picker-item options="{{counties}}"></t-picker-item>
+    </t-picker>
+
+
+    <t-cell title="二维码过期时间" hover note="{{monthText}}" arrow data-mode="month" bindtap="showPicker" t-class="panel-item" />
+    <!-- 年月 -->
+    <t-date-time-picker title="选择日期" visible="{{monthVisible}}" mode="month" value="{{month}}" format="YYYY-MM" bindchange="onConfirm" bindpick="onColumnChange" bindcancel="hidePicker" start="{{start}}" end="{{end}}" />
+
+    <t-input label="当前群人数" placeholder="请输入" />
+
+    <view class="releaseAction">注意：为了保证进群效率，请上传至少30人的群二维码，低于30人的将可能审核不通过。
+    </view>
+
+<view class="uploadImge">
+  <view>
+      <text class="uploadText">
+        群封面
+      </text>
+      <t-upload mediaType="{{['image']}}" max="{{1}}" files="{{coverFileList}}" bind:add="handleAdd" bind:remove="handleRemove" data-type="cover">
+      </t-upload>
+    </view>
+
+    <view>
+      <text class="uploadText">
+        群二维码
+      </text>
+      <t-upload mediaType="{{['image']}}" max="{{1}}" files="{{qrFileList}}" bind:add="handleAdd" bind:remove="handleRemove" data-type="qr">
+      </t-upload>
+    </view>
+
+  <view class="footer"></view>
+</view>
+
+
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<view class="clueBody">
+  <!-- 选项卡 -->
+  <view>
+    <t-tabs defaultValue="{{'全部'}}" bind:change="onTabsChange" bind:click="onTabsClick" t-class="custom-tabs">
+    <t-tab-panel label="全部" value="全部" />
+    <t-tab-panel label="未跟进" value="未跟进" />
+    <t-tab-panel label="已跟进" value="已跟进" />
+  </t-tabs>
+  </view>
+
+  <view>
+  <t-clue></t-clue>
+  </view>
+</view>

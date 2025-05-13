@@ -1,0 +1,10 @@
+<view class="order-group">
+  <view class="order-group__content">
+    <block wx:for="{{groundStatistics}}" wx:key="index" class="statistics_border">
+      <view class="order-group__item">
+        <view class="statisticsText">{{item.number}}</view>
+        <view class="order-group__item__title title-class">{{item.title}}</view>
+      </view>
+    </block>
+  </view>
+</view>

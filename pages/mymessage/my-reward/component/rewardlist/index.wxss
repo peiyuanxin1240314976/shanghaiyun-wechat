@@ -1,0 +1,48 @@
+.myreward{
+  padding: 40rpx 30rpx;
+}
+
+.inner{
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 24rpx;
+  padding: 26rpx 20rpxm;
+}
+
+.myreward .left{
+  display: flex;
+  background-color: #fff;
+  justify-content: space-between;
+  padding: 26rpx;
+  margin-bottom: 20rpx;
+  border-radius: 24rpx;
+}
+.imgView{
+  display: inline-block;
+  padding: 0 12rpx;
+}
+
+.time{
+  color: rgba(0, 0, 0, 0.6);
+}
+.taskIcon{
+  padding-top: 10rpx;
+  width: 62rpx;
+  height: 53rpx;
+}
+.font1-4{
+  font-size: 28rpx;
+}
+.font1-2{
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.6); 
+}
+
+.rewardNumberBody{
+  display: flex;
+  align-items: center;
+}
+
+.rewardNumber{
+  color: rgba(51, 94, 247, 1);
+}

@@ -1,0 +1,48 @@
+.allHead{
+  color: #fff;
+  text-align: center;
+  font-size: 36rpx;
+  padding: 20rpx 30rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.lastUrl{
+  position: absolute;
+  left: 1.5rem;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://blog-1325333133.cos.ap-guangzhou.myqcloud.com/admin/1/1defa378-d03b-43de-a4fd-e5fe6890675a.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-code {
+  width: 400rpx;
+  height: 400rpx;
+  margin-bottom: 40rpx;
+  border-radius: 24rpx;
+}
+
+.text {
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5;
+}

@@ -1,0 +1,103 @@
+@import 'style/iconfont.wxss';
+
+@import 'style/theme.wxss';
+
+page {
+  --td-text-color-primary :#335ef7;
+  --td-bg-color-primary:#335ef7;
+}
+
+/* 下拉 */
+.t-dropdown-menu__item{
+  color: #151515 !important;
+}
+
+/* 公用通知栏 */
+page .external-class {
+  opacity: 1;
+  background: #fff;
+  padding: 10rpx 0 !important;
+}
+
+page .external-class-prefix-icon {
+  color: var(--td-text-color-primary);
+  font-size: 30rpx;
+  padding-top: 7rpx;
+}
+
+
+/*公用 筛选 */
+.dropdownBody{
+  /* display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ebebeb; */
+  /* padding: 0; */
+  margin: 0 30rpx;
+}
+.t-dropdown-menu::after{
+  height: 0 !important;
+}
+/* 选中的对勾去掉 */
+.t-radio__icon--checked  {
+  display: none !important;
+}
+/* 所有的选项的前面的icon */
+.t-radio__icon  {
+  display: none !important;
+}
+
+/* 去掉最下面的横线 */
+.t-radio__border{
+  display: none !important;
+}
+
+/* 所有选项按钮的样式 */
+.t-radio{
+  padding: 0 !important;
+  text-align: center !important;
+  background: rgba(247, 248, 250, 1) !important;
+
+  margin: 10rpx;
+}
+.t-radio__title{
+  padding: 10rpx 0;
+  color: rgba(78, 89, 105, 1) !important;
+  font-size: 24rpx;
+}
+
+
+/* 选中的选项按钮的样式 */
+.t-radio__title--checked{
+  /* background-color: #006fff; */
+  background-color: rgba(232, 243, 255, 1);
+  color: rgba(22, 93, 255, 1) !important;
+}
+
+/* .t-dropdown-item{
+  z-index: 60 !important;
+} */
+.t-popup{
+  z-index: 11700 !important;
+}
+.t-dropdown-item__body{
+  padding: 10rpx;
+}
+
+.areaPicker .t-overlay{
+  top: 390px !important;
+}
+
+
+.footer{
+  height: 300rpx;
+}
+
+.flexBetween{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexCenter{
+	display: flex;
+	justify-content: center;
+}

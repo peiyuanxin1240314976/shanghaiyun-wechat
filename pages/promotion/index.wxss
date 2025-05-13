@@ -1,0 +1,108 @@
+.card-theme {
+  --td-swiper-radius: 0;
+  --td-swiper-item-padding: 0 12rpx;
+  --td-swiper-nav-dot-color: var(--td-bg-color-component, #e7e7e7);
+  --td-swiper-nav-dot-active-color: var(--td-brand-color, #0052d9);
+
+  padding-bottom: 18px;
+}
+
+
+
+.t-swiper-host{
+  height: 300px !important;
+}
+
+.t-swiper__item{
+  justify-content: center;
+}
+
+.card-theme .card-theme-nav {
+  bottom: -18px;
+}
+
+.t-swiper-nav--bottom {
+  bottom: -15rpx !important;
+}
+
+.t-swiper-nav__dots-item{
+  background: rgba(224, 224, 229, 1) !important;
+}
+
+.t-swiper-nav__dots-item--active {
+  background-color: rgba(63, 140, 255, 1) !important;
+
+}
+
+.scale-candidate-active{
+  height: 285px !important;
+  width: 160px !important;
+}
+
+
+.swiperBody .t-image--shape-round{
+  border-radius: 15px !important;
+}
+
+.swiperBody .scale-candidate {
+  height: 213px !important;
+  width: 120px !important;
+}
+.title{
+  margin-top: 20rpx;
+  font-weight: 400;
+  font-size: 32rpx;
+}
+.proview{
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.6);
+}
+.align{
+  text-align: center;
+}
+
+.mt3{
+  margin-top: 60rpx;
+}
+
+/* 操作按钮容器 */
+.operation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 操作按钮项 */
+.operation .operation-item {
+  background: rgba(251, 239, 239, 1);
+  width: 140rpx;  /* 7rem ≈ 140rpx (1rem ≈ 20rpx) */
+  height: 140rpx; /* 7rem ≈ 140rpx */
+  margin: 6rpx;   /* 0.3rem ≈ 6rpx */
+  border-radius: 24rpx; /* 1.2rem ≈ 24rpx */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直居中 */
+  align-items: center;     /* 水平居中 */
+}
+
+/* 操作按钮文字 */
+.operation .operation-item text {
+  font-size: 20rpx; /* 1rem ≈ 20rpx */
+  padding-top: 12rpx; /* 0.6rem ≈ 12rpx */
+  color: #333; /* 添加默认文字颜色 */
+}
+
+/* 第二个按钮的特殊样式 */
+.operation .operation-item:nth-child(2) {
+  background: rgba(239, 244, 251, 1);
+}
+
+/* 第三个按钮的特殊样式 */
+.operation .operation-item:nth-child(3) {
+  background: rgba(239, 251, 240, 1);
+}
+
+/* 第四个按钮的特殊样式 */
+.operation .operation-item:nth-child(4) {
+  background: rgba(239, 244, 251, 1);
+}

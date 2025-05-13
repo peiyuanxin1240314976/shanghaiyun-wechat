@@ -1,0 +1,53 @@
+.myTask{
+  padding: 40rpx 30rpx;
+}
+.title{
+  font-size: 36rpx;
+  line-height: 40rpx;
+  font-weight: 500;
+  padding-left: 30rpx;
+  position: relative;
+  margin-bottom: 40rpx;
+}
+
+.title::before{
+  position: absolute;
+  content: '';
+  width: 8rpx;
+  height: 40rpx;
+  left: 0;
+  background: rgba(51, 94, 247, 1);
+  border-radius: 24rpx;
+}
+
+.inner{
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 24rpx;
+  padding: 26rpx 20rpxm;
+}
+
+.left{
+  display: flex;
+  background-color: #fff;
+  justify-content: space-between;
+  padding: 26rpx;
+  margin-bottom: 20rpx;
+  border-radius: 24rpx;
+}
+.imgView{
+  display: inline-block;
+  padding: 0 12rpx;
+}
+.taskIcon{
+  padding-top: 10rpx;
+  width: 62rpx;
+  height: 53rpx;
+}
+.font1-4{
+  font-size: 28rpx;
+}
+.font1-2{
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.6); 
+}

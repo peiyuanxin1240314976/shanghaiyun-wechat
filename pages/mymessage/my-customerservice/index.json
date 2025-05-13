@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "客服",
+  "usingComponents": {
+    "t-image": "tdesign-miniprogram/image/image"
+  }
+}

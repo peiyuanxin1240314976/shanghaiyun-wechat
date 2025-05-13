@@ -1,0 +1,21 @@
+<view>
+<!-- https://blog-1325333133.cos.ap-guangzhou.myqcloud.com/admin/1/5a416c7a-ee34-4855-bbca-6f5f3bc718eb.jpg -->
+<view>
+        <view class="allHead">
+            <!-- <span class="lastUrl">
+                <van-icon name="arrow-left" />
+            </span> -->
+           联系客服
+        </view>
+        <view class="container">
+            <view class="qr-container">
+            <view>
+              <t-image src="{{qrimageSrc}}" class="qr-code" mode="aspectFill" width="200" height="200" aria-label="客服微信二维码" />
+            </view>
+
+                <view class="text">长按识别二维码</view>
+                <view class="text">添加加客服微信</view>
+            </view>
+        </view>
+    </view>
+</view>

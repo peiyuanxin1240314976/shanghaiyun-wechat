@@ -1,0 +1,143 @@
+<view style="text-align: center; color: #b9b9b9" wx:if="{{pageLoading}}">
+  <t-loading theme="circular" size="40rpx" text="加载中..." inherit-color />
+</view>
+<view class="home-page-header">
+
+  <view class="swiper-wrap">
+    <t-swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}" imageProps="{{swiperImageProps}}" list="{{imgSrcs}}" bind:click="navToActivityDetail" />
+  </view>
+
+  <!-- 通知栏 -->
+  <view>
+    <t-notice-bar visible="{{true}}" prefixIcon="notification-filled" content="提示文字描述提示文字描述提示文字描述" t-class="external-class" t-class-prefix-icon="external-class-prefix-icon"></t-notice-bar>
+  </view>
+
+  <!-- 第三方跳转 -->
+  <view class="tr">
+    <view class="col">
+      <t-image src="{{imageSrc}}" mode="heightFix" width="72" height="72" aria-label="烛龙指数" />
+    </view>
+    <view class="col">
+      <t-image src="{{imageSrc2}}" mode="heightFix" width="72" height="72" aria-label="关键联系人" />
+    </view>
+    <view class="col">
+      <t-image src="{{imageSrc3}}" mode="heightFix" width="72" height="72" aria-label="营销意向" />
+    </view>
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search-container" bind:tap="navToSearchPage">
+    <view class="search-content">
+      <!-- 左侧实时更新 -->
+      <view class="update-section">
+        <text class="update-text youshe">实时更新</text>
+      </view>
+
+      <!-- 右侧搜索框 -->
+      <view class="search-section">
+        <t-search t-class-input="t-search__input" t-class-input-container="t-search__input-container" placeholder="搜索" leftIcon="" disabled>
+          <t-icon slot="left-icon" prefix="wr" name="search" size="40rpx" color="#bbb" />
+        </t-search>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 筛选 -->
+<view class="dropdownBody">
+  <!-- <t-dropdown-menu >
+    <t-dropdown-item  bind:open="open" label="综合推荐" optionsColumns="3" options="{{multipleSelect.options}}" value="{{multipleSelect.value}}" bindchange="handleMultipleSelect"  />
+  </t-dropdown-menu> -->
+  <t-dropdown-menu>
+    <t-dropdown-item label="综合推荐" optionsColumns="3" options="{{multipleSelect.options}}" value="{{multipleSelect.value}}" bindchange="handleMultipleSelect" />
+
+    <t-dropdown-item bind:open="onAreaPicker" bind:close="closeAreaPicker" label="群区域">
+    </t-dropdown-item>
+
+    <t-dropdown-item label="群人数" optionsColumns="3" options="{{tripleColumnsOptions}}" defaultValue="{{['option_1', 'option_2', 'option_3']}}" />
+  </t-dropdown-menu>
+
+  <view class="areaPicker">
+    <t-picker visible="{{areaVisible}}" value="{{areaValue}}" title="选择地区" cancelBtn="取消" confirmBtn="确认" usingCustomNavbar bindchange="onPickerChange" bindpick="onColumnChange" bindcancel="onPickerCancel">
+      <t-picker-item options="{{provinces}}"></t-picker-item>
+      <t-picker-item options="{{cities}}"></t-picker-item>
+      <t-picker-item options="{{counties}}"></t-picker-item>
+    </t-picker>
+  </view>
+
+  <!-- <t-dropdown-menu>
+    <t-dropdown-item label="群人数" optionsColumns="3" options="{{tripleColumnsOptions}}" defaultValue="{{['option_1', 'option_2', 'option_3']}}" />
+  </t-dropdown-menu> -->
+</view>
+
+
+<view class="home-page-container">
+  <!-- <view class="home-page-tabs">
+    <t-tabs
+      t-class="t-tabs"
+      t-class-active="tabs-external__active"
+      t-class-item="tabs-external__item"
+      defaultValue="{{0}}"
+      space-evenly="{{false}}"
+      bind:change="tabChangeHandle"
+    >
+      <t-tab-panel
+        wx:for="{{tabList}}"
+        wx:for-index="index"
+        wx:key="index"
+        label="{{item.text}}"
+        value="{{item.key}}"
+      />
+    </t-tabs>
+  </view> -->
+
+  <goods-list wr-class="goods-list-container" goodsList="{{goodsList}}" bind:addground="goodListAddGroundHandle" />
+  <!-- 加群弹出层 -->
+  <view class="groundPopup">
+    <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
+      <view class="block">
+        <view class="header">
+          <!-- <view class="btn btn--cancel" aria-role="button"></view> -->
+          <view class="title">深圳信用优化交流群</view>
+          <view class="btn btn--confirm" bind:tap="onClose">
+            <t-icon name="{{closeIcon}}" size="24rpx" data-name="{{closeIcon}}" />
+          </view>
+        </view>
+
+        <view class="groundBody">
+          <view class="groundAdress">
+            <t-icon name="location" size="24rpx" data-name="location" />
+            深圳市<text class="groundPeopleName">350</text>人
+          </view>
+          <view class="groundAction">
+            <t-notice-bar visible="{{true}}" theme="success" content="二维码已经过安全验证，请放心扫描！" t-class="external-class" t-class-prefix-icon="external-class-prefix-icon"></t-notice-bar>
+
+          </view>
+          <view class="groundName">
+            群聊：深圳信用优化交流群
+          </view>
+          <view class="groundQr">
+            <t-image src="{{imageSrc2}}" mode="aspectFill" width="72" height="72" aria-label="二维码" />
+          </view>
+          <view class="groundMessage">
+            (长按二维码识别添加群聊)
+          </view>
+          <view class="lastAction">
+            谨防诈骗，保护财产安全，切记不要网上交易
+          </view>
+
+          <view class="button-ground">
+            <t-button icon="usergroup-filled"  block size="medium" t-class="group-btn" variant="outline">群已满</t-button>
+            <t-button  icon="error-triangle-filled" block size="medium" t-class="group-btn" variant="outline" disabled>群失效</t-button>
+          </view>
+        </view>
+      </view>
+    </t-popup>
+  </view>
+
+
+
+  <load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
+  <t-toast id="t-toast" />
+</view>

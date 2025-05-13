@@ -1,0 +1,55 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.content-wrapper {
+  margin-top: 340rpx;
+  position: relative;
+  padding: 0 30rpx;
+}
+
+.main-content {
+  height: 500rpx;
+}
+
+.order-group-wrapper {
+  margin-bottom: 16rpx;
+}
+
+.order-group-note {
+  font-size: 28rpx;
+}
+
+.cell-box {
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
+}
+.icon-color {
+  color: #aaa;
+}
+.cell-class {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.cell-box .order-group__left {
+  margin-right: 0;
+}
+.cell-box .t-cell-padding {
+  padding: 24rpx 18rpx 24rpx 32rpx;
+}
+
+.cell-box .t-cell{
+  padding: 30rpx 0;
+  border-bottom: 1px solid rgba(229, 230, 235, 1);
+}
+.cell-box .t-cell:last-child{
+  border-bottom-width: 0;
+}
+.cell-box .t-cell__title-text{
+  color: rgba(29, 33, 41, 1);
+}

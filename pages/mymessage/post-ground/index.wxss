@@ -1,0 +1,86 @@
+.mb4.groupList {
+  padding: 32rpx 50rpx;
+}
+
+.groupInner {
+  border-radius: 25rpx;
+  padding: 0rpx !important;
+  margin-bottom: 32rpx;
+}
+
+.imgBox {
+  display: inline-block;
+  position: relative;
+  vertical-align: bottom;
+  overflow: hidden;
+}
+
+.imgBox image {
+  border-radius: 25rpx;
+  border: 2rpx solid rgba(201, 205, 212, 1);
+}
+
+.imgBox .tagIcon {
+  position: absolute;
+  top: -20rpx;
+  left: -20rpx;
+  border: none;
+}
+
+.userInfo {
+  display: inline-block;
+  height: 100%;
+  margin-left: 32rpx;
+}
+
+.custom-title {
+  color: rgba(104, 101, 110, 1);
+  font-weight: 400;
+  display: block;
+  line-height: 54rpx;
+}
+
+.custom-title:first-child {
+  color: rgba(50, 49, 53, 1);
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.custom-title:last-child {
+  color: rgba(255, 141, 26, 1);
+}
+
+.font1-2 {
+  font-size: 24rpx;
+}
+
+.font1-6 {
+  font-size: 32rpx;
+}
+
+.font1-4 {
+  font-size: 28rpx;
+}
+
+.numberColor {
+  color: rgba(51, 94, 247, 1);
+}
+
+.adressIcon{
+  display: inline-block;
+}
+
+.click {
+  text-align: center;
+}
+.click .editBtn {
+  width: 150rpx;
+}
+
+.click  {
+  margin-bottom: 16rpx;
+}
+
+.ml1 {
+  margin-left: 20rpx;
+}

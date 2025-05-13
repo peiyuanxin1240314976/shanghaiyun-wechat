@@ -1,0 +1,15 @@
+.clueBody{
+  height: 100vh;
+  background: rgba(239, 244, 251, 1);
+} 
+.clueBody .t-tabs__item {
+  color: #000 !important;
+}
+.clueBody .t-tabs__item-inner--active{
+  color: rgba(22, 93, 255, 1) !important;
+
+}
+
+.t-tabs__track{
+  width: 44rpx !important;
+}

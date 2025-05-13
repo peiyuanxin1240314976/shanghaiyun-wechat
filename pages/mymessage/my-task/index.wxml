@@ -1,0 +1,41 @@
+<view class="myInfo">
+  <view style="height:31vh;">
+    <view class="header">
+      <view class="lastUrl">
+        <!-- <t-icon class="lastIconleft" name="arrow-left" bindtap="onClickLeft" /> -->
+        <text>我的任务</text>
+        <text class="lastIconright" bindtap="onClickRight">首页</text>
+      </view>
+
+      <view class="name">
+        <view>
+          <text class="points">{{ userInfo.points }}点</text>
+          <t-button theme="light" class="btn" size="small">立即使用</t-button>
+        </view>
+
+      </view>
+
+      <view class="statistics">
+        <view class="text">
+          <text class="alongTimeSign">已连续签到 <text class="numberColor">{{ userInfo.signDays }}</text>
+            <text class="day">天 </text>
+            <text class="encourage">继续加油，持续奖励</text>
+          </text>
+        </view>
+        <view class="flexBetween">
+          <block wx:for="{{signDays}}" wx:key="week">
+            <view class="day-item {{item.status ? 'taskDay' : ''}}" bindtap="sign" data-index="{{index}}">
+              <view class="day-point">+8</view>
+              <text class="week">{{item.week}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view>
+    <t-task></t-task>
+  </view>
+</view>

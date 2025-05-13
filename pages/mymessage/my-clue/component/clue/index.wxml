@@ -1,0 +1,57 @@
+<view class="myclue">
+  <block wx:for="{{list}}" wx:key="id" class="flexBetween inner">
+    <view class="left" data-index="{{index}}">
+      <view>
+        <view class="imgView">
+          <image class="taskIcon" src="{{item.icon}}"></image>
+        </view>
+        <view class="imgView">
+          <view class="font1-4">{{item.title}}</view>
+          <view class="font1-2">{{item.linkPhone}}</view>
+        </view>
+      </view>
+
+      <view>
+        <t-button class="clueBtn" disabled="{{item.status === 1}}" size="small" theme="{{item.status === 1 ? 'default' : 'primary'}}" data-index="{{index}}" bindtap="flowUp">
+          {{item.status === 0 ? '跟进' : '已跟进'}}
+        </t-button>
+      </view>
+    </view>
+
+  </block>
+
+  <view class="cluePop">
+    <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
+      <view class="block">
+        <view class="header">
+          <view class="title">线索跟进</view>
+          <view class="btn btn--confirm" bind:tap="onClose">
+            <t-icon name="{{closeIcon}}" size="24rpx" data-name="{{closeIcon}}" />
+          </view>
+        </view>
+
+        <view class="cluepopbody">
+          <view class="areaGroundName">
+            深圳市腾讯计算机有限公司3
+          </view>
+          <view class="areaGroundphoto">
+            1888888888
+          </view>
+          <view class="areaclue">
+            <t-textarea t-class="external-clue" placeholder="说点什么吧..." maxcharacter="100" disableDefaultPadding="{{true}}" indicator>
+              <view slot="label" class="areaLabel">
+                <text class="{{activeAreaId === item.id ? 'activeBtn areabtn' : 'areabtn'}}" wx:for="{{arealist}}" wx:key="id" data-id="{{item.id}}" bindtap="choseBtn">{{item.name}}</text>
+              </view>
+            </t-textarea>
+          </view>
+        </view>
+
+        <view class="cluepopfooter">
+          <t-button theme="light" block size="large" shape="round" t-class="group-btn">提交反馈</t-button>
+          <t-button theme="primary" block size="large" shape="round" t-class="group-btn group-btn-boxshadow">拨打电话</t-button>
+        </view>
+      </view>
+    </t-popup>
+  </view>
+
+</view>

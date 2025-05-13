@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "奖励列表",
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

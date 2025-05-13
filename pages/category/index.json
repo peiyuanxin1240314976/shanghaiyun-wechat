@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "发布群",
+  "usingComponents": {
+    "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-picker": "tdesign-miniprogram/picker/picker",
+    "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
+    "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker",
+    "t-upload": "tdesign-miniprogram/upload/upload",
+    "t-image": "tdesign-miniprogram/image/image"
+  }
+}

@@ -1,0 +1,30 @@
+
+
+.noticeRow{
+  background-color: rgba(239, 244, 251, 1) !important;
+  padding: 10rpx !important;
+}
+.external-class{
+  background-color: rgba(239, 244, 251, 1) !important;
+}
+
+.releaseAction{
+  font-size: 24rpx;
+  background-color: rgba(239, 244, 251, 1);
+  padding: 20rpx;
+}
+
+.releaseWrap .t-input__label, .releaseWrap .t-cell__title-text {
+  color: rgba(0, 0, 0, 0.9) !important;
+  font-size: 32rpx !important;
+}
+
+.uploadImge{
+  padding: 0 30rpx;
+}
+.uploadText{
+  display: inline-block;
+  margin-bottom: 30rpx;
+}
+
+

@@ -1,0 +1,21 @@
+<view>
+<!-- https://blog-1325333133.cos.ap-guangzhou.myqcloud.com/admin/1/1defa378-d03b-43de-a4fd-e5fe6890675a.jpg -->
+<view>
+        <view class="allHead">
+            <!-- <span class="lastUrl">
+                <van-icon name="arrow-left" />
+            </span> -->
+           关注公众号
+        </view>
+        <view class="container">
+            <view class="qr-container">
+            <view>
+              <t-image src="{{imageSrc}}" class="qr-code" mode="aspectFill" width="200" height="200" aria-label="公众号二维码" />
+            </view>
+
+                <view class="text">长按识别二维码</view>
+                <view class="text">关注公众号</view>
+            </view>
+        </view>
+    </view>
+</view>

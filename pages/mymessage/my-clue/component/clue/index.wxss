@@ -1,0 +1,142 @@
+.myclue{
+  padding: 40rpx 30rpx;
+}
+
+
+.inner{
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 24rpx;
+  padding: 26rpx 20rpxm;
+}
+
+.left{
+  display: flex;
+  background-color: #fff;
+  justify-content: space-between;
+  padding: 26rpx;
+  margin-bottom: 20rpx;
+  border-radius: 24rpx;
+}
+.imgView{
+  display: inline-block;
+  padding: 0 12rpx;
+}
+.taskIcon{
+  padding-top: 10rpx;
+  width: 62rpx;
+  height: 53rpx;
+}
+.font1-4{
+  font-size: 28rpx;
+}
+.font1-2{
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.6); 
+}
+.clueBtn{
+  width: 132rpx;
+}
+
+/* 弹窗 */
+.block {
+  width: 100vw;
+  height: 510px;
+  background: var(--td-bg-color-container);
+  border-top-left-radius: 16rpx;
+  border-top-right-radius: 16rpx;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 116rpx;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+  font-weight: 500;
+  font-size: 36rpx;
+  /* color: var(--td-text-color-primary); */
+}
+
+.btn {
+  font-size: 32rpx;
+  padding: 32rpx;
+}
+
+/* .btn--cancel {
+  color: var(--td-text-color-secondary);
+} */
+
+.btn--confirm {
+  position: absolute;
+  right: 0;
+  color: rgba(134, 144, 156, 1);
+}
+
+.block .t-icon-close{
+  background-color: rgba(242, 243, 245, 1);
+  padding: 10rpx;
+  border-radius: 50%;
+}
+
+.cluepopbody{
+  padding: 40rpx 32rpx;
+}
+
+.areaclue .t-textarea{
+  border: 1px solid rgba(229, 229, 229, 1);
+  border-radius:30rpx ;
+  margin-top: 20rpx;
+}
+
+
+.external-clue{
+  background-color: none !important;
+  padding: 32rpx;
+}
+
+.areaGroundName{
+  color: #000;
+  font-size: 28rpx;
+}
+.areaGroundphoto{
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 24rpx;
+}
+
+.areaLabel{
+  display: flex;
+  justify-content: space-around;
+}
+.areabtn{
+  background: rgba(246, 246, 246, 1);
+  width: 136rpx;
+  height: 64rpx;
+  display: inline-block;
+  font-size: 24rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: rgba(128, 128, 128, 1);
+}
+
+.activeBtn{
+  background: rgba(235, 239, 254, 1);
+  color: rgba(51, 94, 247, 1);
+}
+
+.cluepopfooter{
+  margin: 32rpx;
+  display: flex;
+}
+
+.group-btn-boxshadow{
+  box-shadow: 4px 8px 24px  rgba(51, 94, 247, 0.25);
+}
+
+.group-btn{
+  width: 320rpx;
+}

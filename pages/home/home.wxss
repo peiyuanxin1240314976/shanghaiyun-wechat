@@ -1,0 +1,327 @@
+page {
+  box-sizing: border-box;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 96rpx);
+}
+
+.t-tabs.t-tabs--top .t-tabs__scroll {
+  border-bottom: none !important;
+}
+
+.home-page-header {
+  background: #fff;
+}
+
+.home-page-container {
+  background: #ffffff;
+}
+
+.home-page-container,
+.home-page-header {
+  display: block;
+  padding: 0 24rpx;
+}
+
+/* 外层容器 */
+.search-container {
+  padding: 10rpx 0;
+  background: #fff;
+}
+
+/* 内容区域 */
+.search-content {
+  display: flex;
+  align-items: center;  /* 垂直居中 */
+  justify-content: space-between;  /* 左右分开 */
+}
+
+/* 左侧实时更新 */
+.update-section {
+  flex-shrink: 0;  /* 防止被压缩 */
+  margin-right: 30rpx;  /* 与搜索框间距 */
+}
+
+.update-text {
+  font-size: 28rpx;
+  color: var(--td-text-color-primary);
+  line-height: 1.5;  /* 保持垂直居中 */
+}
+
+/* 右侧搜索框 */
+.search-section {
+  flex: 1;  /* 占据剩余空间 */
+  max-width: 550rpx;  /* 防止过宽 */
+}
+
+/* 调整 TDesign 搜索组件样式 */
+.t-search__input-container {
+  height: 64rpx !important;
+  background: #f5f5f5 !important;
+  border-radius: 5rpx !important;
+}
+
+.t-search__input {
+  font-size: 26rpx !important;
+}
+
+/* .home-page-header .t-search__input-container {
+  border-radius: 5rpx !important;
+  height: 64rpx !important;
+}
+
+.home-page-header .t-search__input {
+  font-size: 28rpx !important;
+  color: rgb(116, 116, 116) !important;
+} */
+
+.home-page-header .swiper-wrap {
+  margin-top: 20rpx;
+}
+
+/* 设置banner的高度 */
+.home-page-header .swiper-wrap .t-swiper .t-swiper-host {
+  height: 300rpx !important;
+}
+/* .home-page-header .swiper-wrap .t-swiper .t-swiper-host .t-image__img {
+  height: 100% !important;
+} */
+
+.home-page-header .t-image__swiper {
+  width: 100%;
+  height: 300rpx;
+  border-radius: 10rpx;
+}
+
+
+
+
+.home-page-container .t-tabs {
+  background: #f5f5f5 !important;
+}
+
+.home-page-container .t-tabs .t-tabs-nav {
+  background-color: transparent;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.home-page-container .t-tabs .t-tabs-scroll {
+  border: none !important;
+}
+
+/* 第三方跳转 */
+.tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col {
+  margin: 0 0rpx;
+
+}
+.col .t-image{
+  /* width: 100rpx; */
+  height: 172rpx;
+  margin-bottom: 20rpx;
+}
+.col .t-image image{
+  border-radius: 16rpx;
+}
+
+
+.tr + .tr {
+  margin-top: 48rpx;
+}
+
+.text {
+  font-size: 28rpx;
+  color: var(--td-text-color-secondary);
+  line-height: 44rpx;
+  margin-bottom: 32rpx;
+}
+
+
+
+
+/* 半个字 */
+.home-page-container .tab.order-nav .order-nav-item.scroll-width {
+  min-width: 165rpx;
+}
+.home-page-container .tab .order-nav-item.active {
+  color: #fa550f !important;
+}
+
+.home-page-container .tab .bottom-line {
+  border-radius: 4rpx;
+}
+
+.home-page-container .tab .order-nav-item.active .bottom-line {
+  background-color: #fa550f !important;
+}
+
+.home-page-container .tabs-external__item {
+  /* color: #666 !important; */
+  font-size: 28rpx;
+}
+
+.home-page-container .tabs-external__active {
+  color: #333333 !important;
+  font-size: 32rpx;
+}
+
+.home-page-container .tabs-external__track {
+  /* background-color: #fa4126 !important; */
+  height: 6rpx !important;
+  border-radius: 4rpx !important;
+  width: 48rpx !important;
+}
+
+.t-tabs.t-tabs--top .t-tabs__item,
+.t-tabs.t-tabs--bottom .t-tabs__item {
+  height: 86rpx !important;
+}
+
+.home-page-container .goods-list-container {
+  background: #ffffff !important;
+  margin-top: 16rpx;
+}
+
+.home-page-tabs {
+  --td-tab-nav-bg-color: transparent;
+  --td-tab-border-color: transparent;
+  --td-tab-item-color: #666;
+  --td-tab-track-color: red;
+}
+
+
+/* 加群弹出层 */
+
+.block {
+  width: 100vw;
+  height: 510px;
+  background: var(--td-bg-color-container);
+  border-top-left-radius: 16rpx;
+  border-top-right-radius: 16rpx;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 116rpx;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+  font-weight: 500;
+  font-size: 36rpx;
+  /* color: var(--td-text-color-primary); */
+}
+
+.btn {
+  font-size: 32rpx;
+  padding: 32rpx;
+}
+
+/* .btn--cancel {
+  color: var(--td-text-color-secondary);
+} */
+
+.btn--confirm {
+  position: absolute;
+  right: 0;
+  color: rgba(134, 144, 156, 1);
+}
+
+.block .t-icon-close{
+  background-color: rgba(242, 243, 245, 1);
+  padding: 10rpx;
+  border-radius: 50%;
+}
+
+/* 弹窗内部内容 */
+.groundBody{
+  text-align: center;
+  font-size: 28rpx;
+  padding: 0 32rpx;
+}
+.groundBody .groundAdress{
+  margin-bottom: 20rpx;
+}
+
+.groundPeopleName{
+  color: rgba(51, 94, 247, 1);
+}
+.groundBody .groundAdress .t-icon {
+  display: inline-block;
+}
+
+.groundBody .groundAction{
+  margin-bottom: 40rpx;
+}
+
+.groundBody .groundAction .external-class{
+  background: rgba(232, 255, 234, 1);
+  padding: 20rpx 0 !important;
+}
+
+.groundBody .groundAction .external-class .t-notice-bar__content-wrap{
+  color: rgba(0, 180, 42, 1) !important;
+}
+
+.groundBody .groundAction .external-class-prefix-icon{
+  color:  rgba(0, 180, 42, 1);
+  padding-left: 100rpx;
+}
+.groundBody .groundName{
+  margin-bottom: 20rpx;
+}
+.groundBody .groundQr{
+  width: 100%;
+  height: 240rpx;
+  margin-bottom: 10rpx;
+}
+
+
+  .groundQr .t-image__img{
+  width: 240rpx !important;
+  height: 240rpx !important;
+}
+.groundBody .groundMessage{
+  font-size: 24rpx;
+  color: rgba(104, 101, 110, 1);
+  margin-bottom: 20rpx;
+}
+.groundBody .lastAction{
+  color: rgba(255, 0, 0, 1);
+}
+
+.button-ground{
+  margin: 32rpx;
+  display: flex;
+}
+
+.button-ground .group-btn{
+  padding: 20rpx 30rpx;
+  background-color: rgba(232, 243, 255, 1);
+  border-radius: 10rpx;
+  border: 1px solid rgba(51, 94, 247, 1);
+  color: rgba(51, 94, 247, 1);
+  font-size: 30rpx;
+  margin: 0 20rpx;
+}
+
+.button-ground  .t-button--outline.t-button--disabled 
+  {
+  color: rgba(51, 94, 247, 0.3);
+  border-width: 0;
+  background-color:rgba(232, 243, 255, 1);
+}
+
+.button-ground .t-button--outline.t-button--disabled, .t-button--outline.t-button--disabled::after {
+  border-color:rgba(232, 243, 255, 1) !important;
+}
+
+
+

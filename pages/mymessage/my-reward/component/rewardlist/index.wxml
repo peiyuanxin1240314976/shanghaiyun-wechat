@@ -1,0 +1,28 @@
+<view class="myreward">
+<block wx:for="{{list}}"   wx:key="title" class="flexBetween inner">
+  <view class="left" bindtap="toUrl" data-item="{{item}}">
+  <view>
+    <view class="imgView">
+      <image class="taskIcon"  src="{{item.icon}}"></image>
+    </view>
+    <view class="imgView">
+      <view class="font1-4">{{item.title}}</view>
+      <view class="font1-2 time">{{item.createTime}}</view>
+    </view>
+  </view>
+
+  <view class="rewardNumberBody">
+    <view class="font1-4 rewardNumber">+{{item.description}}{{ item.type === '点数' ? '点' : '线索' }}</view>
+    <!-- <t-button 
+      disabled="{{item.status === 1}}" 
+      size="small" 
+      theme="{{item.status === 1 ? 'default' : 'primary'}}"
+    >
+      {{item.status === 0 ? '已领取' : '已完成'}}
+    </t-button> -->
+  </view>
+  </view>
+
+</block>
+
+</view>

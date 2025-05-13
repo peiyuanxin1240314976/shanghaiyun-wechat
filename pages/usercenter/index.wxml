@@ -1,0 +1,39 @@
+<t-user-center-card
+  userInfo="{{userInfo}}"
+  isPhoneHide="{{true}}"
+  name-class="custom-name-class"
+  phone-class="custom-phone-class"
+  avatar-class="customer-avatar-class"
+  currAuthStep="{{currAuthStep}}"
+  bind:gotoUserEditPage="gotoUserEditPage"
+/>
+<view class="content-wrapper">
+<!-- 群人数统计 -->
+  <view class="order-group-wrapper">
+    <t-order-group groundStatistics="{{groundStatisticsList }}"/>
+  </view>
+
+<!-- cell 卡片集合 -->
+  <view class="cell-box">
+    <t-cell-group>
+      <t-cell
+        wx:for="{{menuData}}"
+        wx:for-item="xitem"
+        wx:for-index="xindex"
+        wx:key="xindex"
+        title="{{xitem.title}}"
+        arrow="{{!xitem.icon}}"
+        note="{{xitem.tit}}"
+        data-type="{{xitem.type}}"
+        bordered="{{false}}"
+        bind:click="onClickCell"
+        t-class="t-cell-padding"
+        t-class-note="order-group-note"
+        t-class-left="order-group__left"
+      >
+      </t-cell>
+    </t-cell-group>
+  </view>
+</view>
+
+<t-toast id="t-toast" />
