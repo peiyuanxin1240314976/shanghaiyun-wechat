@@ -48,9 +48,7 @@
 ## :iphone: 基础库版本
 
 最低基础库版本`^2.6.5`
-
 ## :dart: 反馈
-
 ## :link: TDesign 其他技术栈实现
 
 - 移动端 小程序 实现：[mobile-miniprogram](https://github.com/Tencent/tdesign-miniprogram)
