@@ -20,6 +20,15 @@
   color: #333;
   position: relative;
 }
+
+.signBtn{
+  position: absolute;
+  bottom: 14rpx;
+  right: 100rpx;
+  color: #f3f3f3 !important;
+}
+
+
 .user-center-card__header__avatar {
   width: 96rpx;
   height: 96rpx;

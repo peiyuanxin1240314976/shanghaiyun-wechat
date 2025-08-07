@@ -14,13 +14,13 @@
   display: flex;
   background-color: #fff;
   justify-content: space-between;
-  padding: 26rpx;
+  padding: 26rpx 15rpx;
   margin-bottom: 20rpx;
   border-radius: 24rpx;
 }
 .imgView{
   display: inline-block;
-  padding: 0 12rpx;
+  padding: 0 12rpx 0 0;
 }
 .taskIcon{
   padding-top: 10rpx;
@@ -30,6 +30,10 @@
 .font1-4{
   font-size: 28rpx;
 }
+.font1-3{
+  font-size: 26rpx;
+}
+
 .font1-2{
   font-size: 24rpx;
   color: rgba(0, 0, 0, 0.6); 
@@ -59,6 +63,7 @@
   text-align: center;
   font-weight: 500;
   font-size: 36rpx;
+  font-weight: 600;
   /* color: var(--td-text-color-primary); */
 }
 
@@ -87,21 +92,20 @@
   padding: 40rpx 32rpx;
 }
 
-.areaclue .t-textarea{
-  border: 1px solid rgba(229, 229, 229, 1);
-  border-radius:30rpx ;
-  margin-top: 20rpx;
-}
 
 
 .external-clue{
   background-color: none !important;
   padding: 32rpx;
+  border: 1px solid rgba(229, 229, 229, 1);
+  border-radius:30rpx ;
+  margin-top: 20rpx;
 }
 
 .areaGroundName{
   color: #000;
   font-size: 28rpx;
+  font-weight: 600;
 }
 .areaGroundphoto{
   color: rgba(0, 0, 0, 0.6);

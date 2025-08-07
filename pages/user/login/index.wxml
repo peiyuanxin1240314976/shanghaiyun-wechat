@@ -1,0 +1,52 @@
+<view class="wechat-login">
+  <view class="header mb1">
+    <text class="title">微信人脉发掘</text>
+  </view>
+
+  <view class="login-image mb5">
+    <image src="https://blog-1325333133.cos.ap-guangzhou.myqcloud.com/admin/1/041f8b8e-bc3c-4f38-928b-c641df7ed756.png" mode="widthFix" style="width: 281px; height: 196px"/>
+  </view>
+
+  <view class="description">
+    <text class="msg1 mb2">为了更好地为您服务，我们将获取您的手机号码</text>
+    <text class="msg2 mb5">通过您的授权，您可以更方便的发布消息，查看消息和领取奖励等，系统也将为您提供更好的服务</text>
+  </view>
+
+  <!-- 登录按钮 -->
+  <!--   open-type="getUserProfile" bind:getphonenumber="handleGetPhoneNumber" -->
+  <t-button
+    theme="primary"
+    block
+  
+    open-type="getUserInfo" bindgetuserinfo="onGetUserInfoLegacy"
+    bind:tap="handleLogin"
+    class="mb2"
+  >
+    微信一键登录
+  </t-button>
+
+  <t-button
+    theme="light"
+    block
+    bind:tap="goHome"
+    class="mt2"
+  >
+    返回首页
+  </t-button>
+
+  <!-- 协议勾选 -->
+  <view class="agreement">
+    <t-checkbox
+      value="{{ checked }}"
+      bind:change="handleCheckboxChange"
+      icon-size="20rpx"
+    >
+    授权登录即代表同意
+      <text class="link" bind:tap="navigateToAgreement">《用户服务协议》</text>
+    </t-checkbox>
+    
+    <view class="privacy-link">
+      <text class="link" bind:tap="navigateToPrivacy">《用户隐私协议》</text>
+    </view>
+  </view>
+</view>

@@ -10,7 +10,7 @@
         <view class="container">
             <view class="qr-container">
             <view>
-              <t-image src="{{imageSrc}}" class="qr-code" mode="aspectFill" width="200" height="200" aria-label="公众号二维码" />
+              <t-image src="{{imageSrc}}" show-menu-by-longpress class="qr-code" mode="aspectFill" width="200" height="200" aria-label="公众号二维码" />
             </view>
 
                 <view class="text">长按识别二维码</view>

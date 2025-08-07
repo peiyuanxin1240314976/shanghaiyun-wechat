@@ -3,7 +3,6 @@
 		<goods-card
 		  id="{{independentID}}-gd-{{index}}"
 		  data="{{item}}"
-		  currency="{{item.currency || '¥'}}"
 		  thresholds="{{thresholds}}"
 		  class="goods-card-inside"
 		  data-index="{{index}}"

@@ -1,0 +1,40 @@
+<view class="privacy-container">
+  <view class="header">
+    <text class="title">隐私政策</text>
+    <text class="update-date">最后更新日期：2025年5月19日</text>
+  </view>
+  
+  <view class="content">
+    <view class="section">
+      <text class="section-title">一、我们如何收集和使用您的个人信息</text>
+      <text class="section-content">
+        1. 微信授权信息\n
+        当您使用微信登录我们的小程序时，我们会获取您的微信昵称、头像、OpenID等基础信息，用于创建账户和识别用户身份。\n\n
+        2. 设备信息\n
+        我们可能会收集您使用的设备型号、操作系统版本、唯一设备标识符等信息，用于优化服务体验和排查问题。
+      </text>
+    </view>
+    
+    <view class="section">
+      <text class="section-title">二、我们如何使用Cookie和同类技术</text>
+      <text class="section-content">
+        我们可能使用Cookie和类似技术来识别您的身份、记住您的偏好，以提供更优质的用户体验。
+      </text>
+    </view>
+    
+    <view class="section">
+      <text class="section-title">三、您的权利</text>
+      <text class="section-content">
+        您有权访问、更正或删除您的个人信息，也可以随时撤回已同意的授权。
+      </text>
+    </view>
+    
+    <view class="section">
+      <text class="section-title">四、联系我们</text>
+      <text class="section-content">
+        如果您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：\n
+        电话：13510970937
+      </text>
+    </view>
+  </view>
+</view>

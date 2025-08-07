@@ -5,6 +5,7 @@
 page {
   --td-text-color-primary :#335ef7;
   --td-bg-color-primary:#335ef7;
+  --td-input-default-text-color:rgb(31, 31, 31);
 }
 
 /* 下拉 */

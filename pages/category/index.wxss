@@ -27,4 +27,8 @@
   margin-bottom: 30rpx;
 }
 
-
+.footer button{
+  margin-top: 20rpx;
+  background-color: rgba(51, 94, 247, 1);
+  color: #fff;
+}

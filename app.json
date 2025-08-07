@@ -4,12 +4,28 @@
     {
       "root": "pages/user",
       "name": "user",
-      "pages": ["person-info/index", "address/list/index", "address/edit/index", "name-edit/index"]
+      "pages": ["person-info/index", "name-edit/index" ,"login/index"]
+    },
+    {
+      "root": "pages/goods",
+      "name": "goods",
+      "pages": [
+        "list/index",
+        "search/index",
+        "result/index",
+        "comments/index",
+        "comments/create/index"
+      ]
     },
     {
       "root": "pages/mymessage",
       "name": "mymessage",
       "pages": ["my-task/index","post-ground/index","my-reward/index","my-clue/index","my-customerservice/index","my-officialaccount/index"]
+    },
+    {
+      "root": "pages/agreement",
+      "name": "agreement",
+      "pages": ["privacy/index","service/index"]
     }
   ],
   "tabBar": {
@@ -44,7 +60,9 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enableShareAppMessage": true,
+    "enableShareTimeline": true
   },
   "sitemapLocation": "sitemap.json",
   "permission": {

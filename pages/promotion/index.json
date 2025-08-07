@@ -2,6 +2,7 @@
   "navigationBarTitleText": "推广",
   "usingComponents": {
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
-    "t-image": "tdesign-miniprogram/image/image"
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-overlay": "tdesign-miniprogram/overlay/overlay"
   }
 }

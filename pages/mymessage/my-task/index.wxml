@@ -36,6 +36,6 @@
   </view>
 
   <view>
-    <t-task></t-task>
+    <t-task taskList="{{ taskList }}"></t-task>
   </view>
 </view>

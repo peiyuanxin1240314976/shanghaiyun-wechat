@@ -7,12 +7,22 @@ Component({
 
   methods: {
     onChange(event) {
-      this.setData({ active: event.detail.value });
-      wx.switchTab({
-        url: this.data.list[event.detail.value].url.startsWith('/')
-          ? this.data.list[event.detail.value].url
-          : `/${this.data.list[event.detail.value].url}`,
-      });
+      console.log(event,'event');
+      let token = wx.getStorageSync('wechattoken');
+      if((event.detail.value === 3) && !token){
+        wx.navigateTo({
+          url: '/pages/user/login/index',
+        })
+        return false
+      }else{
+        this.setData({ active: event.detail.value });
+        wx.switchTab({
+          url: this.data.list[event.detail.value].url.startsWith('/')
+            ? this.data.list[event.detail.value].url
+            : `/${this.data.list[event.detail.value].url}`,
+        });
+      }
+
     },
 
     init() {

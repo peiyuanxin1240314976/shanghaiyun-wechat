@@ -1,11 +1,12 @@
 .mb4.groupList {
-  padding: 32rpx 50rpx;
+  padding: 32rpx 20rpx;
+  background: rgba(239, 244, 251, 1);
 }
 
 .groupInner {
   border-radius: 25rpx;
-  padding: 0rpx !important;
-  margin-bottom: 32rpx;
+  padding: 10rpx 20rpx 20rpx 20rpx !important;
+  margin-bottom: 20rpx;
 }
 
 .imgBox {
@@ -34,6 +35,10 @@
 }
 
 .custom-title {
+  max-width: 293rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: rgba(104, 101, 110, 1);
   font-weight: 400;
   display: block;

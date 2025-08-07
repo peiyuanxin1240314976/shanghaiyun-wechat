@@ -4,7 +4,6 @@
   name-class="custom-name-class"
   phone-class="custom-phone-class"
   avatar-class="customer-avatar-class"
-  currAuthStep="{{currAuthStep}}"
   bind:gotoUserEditPage="gotoUserEditPage"
 />
 <view class="content-wrapper">
@@ -32,7 +31,37 @@
         t-class-left="order-group__left"
       >
       </t-cell>
+
+      <view>
+        <button class="shareBtn haoyou" open-type="share" bindtap="onShareAppMessage">
+        <view class="shareBtninner">
+          <view class="fontShare">分享好友</view> 
+          <view class="fontShareIcon"> <t-icon name="chevron-right" size="48rpx"/></view>
+        </view>
+        </button>
+      </view>
+
+      <t-cell
+        wx:for="{{menuData2}}"
+        wx:for-item="xitem"
+        wx:for-index="xindex"
+        wx:key="xindex"
+        title="{{xitem.title}}"
+        arrow="{{!xitem.icon}}"
+        note="{{xitem.tit}}"
+        data-type="{{xitem.type}}"
+        bordered="{{false}}"
+        bind:click="onClickCell"
+        t-class="t-cell-padding"
+        t-class-note="order-group-note"
+        t-class-left="order-group__left"
+      >
+      </t-cell>
     </t-cell-group>
+  </view>
+
+  <view bind:tap="clearStorage" style="text-align: center; font-size: 24rpx; padding-top: 20rpx;">
+    退出登录
   </view>
 </view>
 

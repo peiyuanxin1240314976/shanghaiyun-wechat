@@ -2,8 +2,8 @@
 <!-- 筛选 -->
 <view class="dropdownBody">
   <t-dropdown-menu>
-  <t-dropdown-item options="{{product.options}}" optionsColumns="3"   label="综合排序"placement="right" value="{{product.value}}" bindchange="onChange" />
-  <t-dropdown-item options="{{sorter.options}}" optionsColumns="3"   label="群类型"placement="right" default-value="{{sorter.value}}" />
+  <t-dropdown-item options="{{product.options}}" optionsColumns="3" label="综合排序"placement="right" value="{{product.value}}" bindchange="onSuggestChange" />
+  <t-dropdown-item options="{{sorter.options}}" optionsColumns="3"   label="群类型"placement="right" default-value="{{sorter.value}}" bindchange="onTypeChange"/>
 </t-dropdown-menu>
 </view>
 
@@ -14,18 +14,18 @@
       <t-cell class="groupInner">
         <view slot="title" class="cell-content">
           <view class="imgBox">
-            <image src="{{icon}}" alt="" style="width: 100rpx; height: 100rpx;" class="tagIcon" />
+            <image src="{{item.subscript}}" alt="" style="width: 100rpx; height: 100rpx;" class="tagIcon" />
             <image style="width: 160rpx; height: 160rpx; vertical-align: top;" src="{{item.icon || noTu}}" alt="" />
           </view>
           <view class="userInfo ml1">
             <text class="custom-title font1-6">{{item.groupName}}</text>
-            <text class="custom-title font1-2">{{item.issueTime}} 发布</text>
+            <text class="custom-title font1-2">{{item.issueTime || "未知时间"}}发布</text>
             <text class="custom-title font1-2">{{item.qrcodeExpire}} 过期</text>
           </view>
         </view>
         <view slot="right-icon" class="click">
           <view>
-            <t-button class="editBtn" theme="primary" size="extra-small" bindclick="toUrl" data-id="{{item.id}}">编辑</t-button>
+            <t-button class="editBtn" theme="primary" size="extra-small" bindtap="toUrl" data-id="{{item.id}}">编辑</t-button>
           </view>
           <view class="font1-4" style="text-align: center; padding-top: 10rpx;">
             <text class="numberColor">{{item.click}}</text>点击

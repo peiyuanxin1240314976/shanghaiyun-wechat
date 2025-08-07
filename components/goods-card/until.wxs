@@ -1,0 +1,17 @@
+function getMinutesDifference(timestamp) {
+  var now = getDate().getTime(); // WXS 中必须用 getDate() 获取当前时间
+  var timestampInMs = timestamp * 1000; // 假设传入的是秒级时间戳，需转为毫秒
+  var differenceInMs = Math.abs(now - timestampInMs);
+  var differenceInMinutes = Math.floor(differenceInMs / (1000 * 60));
+  return differenceInMinutes < 0 ? '0' : differenceInMinutes.toString();
+}
+
+// 生成 1-30 的随机整数（包含1和30）
+function generateRandomNumber() {
+  return Math.floor(Math.random() * 30) + 1;
+}
+
+module.exports = {
+  getMinutesDifference: getMinutesDifference,
+  generateRandomNumber: generateRandomNumber,
+};

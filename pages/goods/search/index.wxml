@@ -1,0 +1,42 @@
+<view class="search-page">
+  <t-search t-class-input-container="t-class__input-container" t-class-input="t-search__input" value="{{value}}" leftIcon="" placeholder="搜索" bind:submit="handleSubmit" focus>
+    <t-icon slot="left-icon" bind:tap="onClickButton" prefix="wr" name="search" size="40rpx" color="#bbb" />
+  </t-search>
+  <view class="history">
+    <view wx:if="{{searchList.length > 0}}">
+      <view class="flexBetween font1-6">
+        <text>最近搜索</text>
+        <view bindtap="allDelete">
+          <t-icon name="delete" class="closeIcon" size="35rpx" data-name="close" bind:click="deleteOne" />
+        </view>
+      </view>
+      <view class="recently">
+        <block wx:for="{{searchList}}" wx:key="date">
+          <text class="recentlyList font1-2" bindtap="recentlyClick" data-info="{{item.info}}">
+            {{item.info}}
+          </text>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class="history" wx:if="{{takeFirst9List.length > 0}}">
+    <view>
+      <view class="font1-6">
+        <text>浏览记录</text>
+      </view>
+      <block wx:for="{{takeFirst9List}}" wx:key="date">
+        <view class="recently flexBetween font1-4">
+          <view>
+            <t-icon style="display: inline-block; margin-right: 10rpx;" slot="left-icon" prefix="wr" name="search" size="40rpx" color="#bbb" />
+            <text bindtap="recentlyClick" data-info="{{item.info}}">{{item.info}}</text>
+          </view>
+          <view>
+               <t-icon name="close" class="closeIcon" size="48rpx" data-info="{{item.info }}" bind:click="deleteOne" />
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- <t-dialog visible="{{dialogShow}}" content="{{dialog.message}}" bindconfirm="confirm" bind:close="close" confirm-btn="确定" cancel-btn="{{dialog.showCancelButton ? '取消' : null}}" t-class-confirm="dialog__button-confirm" t-class-cancel="dialog__button-cancel" /> -->
+</view>

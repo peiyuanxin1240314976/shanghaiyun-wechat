@@ -7,21 +7,23 @@
   <view class="left">
   <view>
     <view class="imgView">
-      <image class="taskIcon"  src="{{item.icon}}"></image>
+      <image class="taskIcon"  src="{{icon}}"></image>
     </view>
     <view class="imgView">
       <view class="font1-4">{{item.title}}</view>
-      <view class="font1-2">+{{item.description}}点</view>
+      <view class="font1-2">{{item.description}}</view>
     </view>
   </view>
 
   <view>
     <t-button 
-      disabled="{{item.status === 1}}" 
+      disabled="{{item.status === '已完成'}}" 
       size="small" 
-      theme="{{item.status === 1 ? 'default' : 'primary'}}"
+      theme="{{item.status === '已完成' ? 'default' : 'primary'}}"
+      data-info="{{item}}"
+      bindtap="toUrl"
     >
-      {{item.status === 0 ? '已领取' : '已完成'}}
+      {{item.status}}
     </t-button>
   </view>
   </view>

@@ -1,3 +1,5 @@
+<wxs src="/components/goods-card/until.wxs" module="tools" />
+
 <view
   id="{{independentID}}"
   class="goods-card"
@@ -10,9 +12,9 @@
 			<!-- 左侧图片 -->
 			<view class="goods-card__thumb" bind:tap="clickThumbHandle">
 				<t-image
-					wx:if="{{ !!goods.thumb }}"
+					wx:if="{{ !!goods.icon }}"
 					t-class="goods-card__img"
-					src="{{ goods.thumb }}"
+					src="{{ goods.icon }}"
 					mode="aspectFill"
 					lazy-load
 				/>
@@ -20,51 +22,39 @@
 
 			<!-- 中间内容区域 -->
 			<view class="goods-card__content">
+
 				<view class="goods-card__upper">
-					<view wx:if="{{ goods.title }}" class="goods-card__title">
-						{{ goods.title }}
+					<view wx:if="{{ goods.groupName }}" class="goods-card__title">
+						{{ goods.groupName }}
 					</view>
-					<view wx:if="{{ goods.tags && !!goods.tags.length }}" class="goods-card__tags">
+					<view class="goods-card__tags">
 						<view
-							wx:for="{{ goods.tags }}"
-							wx:key="index"
-							wx:for-item="tag"
 							class="goods-card__tag"
-							data-index="{{index}}"
 						>
-							{{tag}}
+            <view class="timeIcon">
+              <t-icon name="time" size="30rpx" data-name="time"  />
+            </view>
+            {{ tools.generateRandomNumber() }}分钟前有人加群
+            <!-- {{ goods.lastJoinTime ? tools.getMinutesDifference(goods.lastJoinTime) : '0' }}分钟前有人加群 -->
 						</view>
 					</view>
 				</view>
+
 				<view class="goods-card__down">
-					<price
-						wx:if="{{ goods.price }}"
-						wr-class="spec-for-price"
-						symbol-class="spec-for-symbol"
-						symbol="{{currency}}"
-						price="{{goods.price}}"
-					/>
-					<price
-						wx:if="{{ goods.originPrice && isValidityLinePrice }}"
-						wr-class="goods-card__origin-price"
-						symbol="{{currency}}"
-						price="{{goods.originPrice}}"
-						type="delthrough"
-					/>
+        <view class="peopleNum" style="white-space: nowrap;"><text class="number">{{goods.peopleNum}}</text>人
+        <view class="adress">
+          <view class="locationIcon">
+              <t-icon name="location" size="30rpx" data-name="time"  />
+          </view>
+        {{ goods.province + goods.city }}
+        </view>
+        </view>
+        
 				</view>
+
 			</view>
 
-			<!-- 右侧购物车 -->
-			<!-- <t-icon
-				class="goods-card__add-cart"
-				prefix="wr"
-				name="cartAdd"
-				id="{{independentID}}-cart"
-				data-id="{{independentID}}"
-				catchtap="addCartHandle"
-				size="48rpx"
-				color="#FA550F"
-			/> -->
+			<!-- 右侧加群 -->
       <t-button class="goods-card__add-cart" theme="primary" size="extra-small" catchtap="addGroup">加群</t-button>
 		</view>
 	</view>

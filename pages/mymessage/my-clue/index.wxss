@@ -1,5 +1,5 @@
 .clueBody{
-  height: 100vh;
+  min-height: 100vh;
   background: rgba(239, 244, 251, 1);
 } 
 .clueBody .t-tabs__item {

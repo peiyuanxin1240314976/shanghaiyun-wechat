@@ -13,7 +13,7 @@
   <!-- 添加一个隐藏的画布用于图片合成 -->
   <canvas 
     canvas-id="compositeCanvas" 
-    style="position: absolute; left: -9999px; width: 1000px; height: 1000px;"
+    style="position: absolute; left: -9999px; width: 580px; height: 1028px;"
   ></canvas>
 
   <t-swiper
@@ -23,6 +23,7 @@
     duration="{{duration}}"
     interval="{{interval}}"
     bindchange="onChange"
+    bind:click="clickCurrent"
     navigation="{{ { type: 'dots' } }}"
     list="{{swiperList}}"
     image-props="{{ { shape: 'round' } }}"
@@ -36,7 +37,7 @@
 </view>
 
 <view class="flexCenter operation mt3">
-  <view class="operation-item" bindtap="copyLink">
+  <view class="operation-item" bindtap="copyDynamicLink">
     <image style="width:27px;height:27px;" src="{{link}}"></image>
     <text>复制链接</text>
   </view>
@@ -50,11 +51,28 @@
     <image style="width:27px;height:27px;" src="{{weixin}}"></image>
     <text>分享好友</text>
   </view>
+  <!-- <view>
+    <button class="shareBtn haoyou" open-type="share" bindtap="onShareAppMessage">
+     <view class="shareImg">
+      <image style="width:27px;height:27px;" src="{{weixin}}"></image>
+     </view> 
+      <view class="fontShare">分享好友</view> 
+    </button>
+  </view> -->
+
+  <view>
+    <button class="shareBtn pengyouquan"  bindtap="handleShare">
+     <view class="shareImg">
+      <image style="width:27px;height:27px;" src="{{pengyouquan}}"></image>
+     </view> 
+      <view class="fontShare">发朋友圈</view> 
+    </button>
+  </view>
   
-  <view class="operation-item" bindtap="showShare" data-type="timeline">
+  <!-- <view class="operation-item" bindtap="showShare" data-type="timeline">
     <image style="width:27px;height:27px;" src="{{pengyouquan}}"></image>
     <text>发朋友圈</text>
-  </view>
+  </view> -->
 </view>
 
 </view>

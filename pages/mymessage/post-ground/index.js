@@ -1,11 +1,14 @@
+import http from '../../../utils/http';
+const { feedbackFn } = require('../../../utils/util');
+
 Component({
   data: {
     // 下拉筛选框
     product: {
-      value: '全部状态',
+      value: '',
       options: [
         {
-          value: '全部状态',
+          value: '',
           label: '全部状态',
         },
         {
@@ -24,10 +27,10 @@ Component({
       ],
     },
     sorter: {
-      value: '综合推荐',
+      value: '',
       options: [
         {
-          value: '综合推荐',
+          value: '',
           label: '综合推荐',
         },
         {
@@ -60,82 +63,117 @@ Component({
 
 
     // list数据
-    icon:'/static/image/1.png',
     loading: false,
     finished: false,
     noTu: '', // 默认图片路径
     list: [
-      {
-        id: 1,
-        groupName: '深圳技术交流群',
-        issueTime: '2023-05-10',
-        qrcodeExpire: '2023-06-10',
-        click: 350,
-        province: '广东省',
-        city: '深圳市',
-        icon: 'https://blog-1325333133.cos.ap-guangzhou.myqcloud.com/admin/1/31ecb44c-240b-4a94-942e-7a5baf66ed73.png',
-        feedbackStatus: 1
-      },
-      {
-        id: 2,
-        groupName: '北京产品经理群',
-        issueTime: '2023-05-12',
-        qrcodeExpire: '2023-06-12',
-        click: 280,
-        province: '北京市',
-        city: '',
-        icon: 'https://blog-1325333133.cos.ap-guangzhou.myqcloud.com/admin/1/31ecb44c-240b-4a94-942e-7a5baf66ed73.png',
-        feedbackStatus: 2
-      },
-      {
-        id: 3,
-        groupName: '上海设计师交流',
-        issueTime: '2023-05-15',
-        qrcodeExpire: '2023-06-15',
-        click: 420,
-        province: '上海市',
-        city: '',
-        icon: 'https://blog-1325333133.cos.ap-guangzhou.myqcloud.com/admin/1/31ecb44c-240b-4a94-942e-7a5baf66ed73.png',
-        feedbackStatus: 0
-      }
-    ]
+    ],
+
+    goodListPagination: {
+      index: 0,
+      num: 20,
+    },
+
+    privateData: {
+      tabIndex: 0,
+    },
+
   },
   methods: {
-    onChange(e) {
+    // 获取数据
+    // 获取列表数据
+    fetchListData(fresh = false) {
+      this.setData({
+        loading: true
+      });
+      
+      const pageSize = this.data.goodListPagination.num;
+      let pageIndex = this.data.privateData.tabIndex * pageSize + this.data.goodListPagination.index + 1;
+
+      http({
+        url: '/api/wx/group/search',
+        method: 'POST',
+        data: { 
+          page: pageIndex,
+          current: pageSize,
+          suggest: this.data.product.value,//综合推荐
+          region: "",//区域
+          peopleNum: null,
+          unionId: "",
+          type: this.data.sorter.value,//群类型
+          groupName: ""//群名字
+         }
+      })
+        .then(data => {
+          console.log('请求成功:', data );
+          data.data.records.map(el=>{
+            if(!el.icon){
+              el.icon = 'https://blog-1325333133.cos.ap-guangzhou.myqcloud.com/admin/1/dd53a1a8-24a7-4154-af4b-fd28e1e39701.png';
+            };
+
+            el.subscript = feedbackFn(el);
+          })
+          const nextList = data.data.records;
+          this.setData({
+            list: fresh ? nextList : this.data.list.concat(nextList),
+            loading: false,
+          });
+        })
+        .catch(err => {
+          console.error('请求失败:', err);
+          this.setData({
+            loading: false
+          });
+          wx.showToast({ title: '加载失败', icon: 'none' });
+        });
+    },
+
+
+
+    onSuggestChange(e) {
       this.setData({
         'product.value': e.detail.value,
+      }, () => {
+        this.fetchListData(true);
+      });
+    },
+
+    onTypeChange(e) {
+      this.setData({
+        'sorter.value': e.detail.value,
+      }, () => {
+        this.fetchListData(true);
       });
     },
 
 
-
-
-    feedbackFn(item) {
-      // 根据 feedbackStatus 返回不同的图标
-      const statusMap = {
-        1: '/static/image/1.png',
-        2: '/static/image/2.png',
-        0: '/static/image/3.png'
-      };
-      console.log(statusMap,item);
-      return statusMap[item.feedbackStatus] || '';
-    },
-  
+    // 跳转编辑
     toUrl(e) {
       const id = e.currentTarget.dataset.id;
-      wx.navigateTo({
-        url: `/pages/edit/edit?id=${id}`
-      });
+      console.log(id);
+      // debugger
+      wx.setStorageSync('tempCategoryId', id)
+      wx.switchTab({
+        url: '/pages/category/index',
+        success: () => {
+          wx.removeStorageSync('tempCategoryId') // 清理缓存
+        }
+      })
     },
   
     onLoad() {
-      // 模拟加载更多数据
-      setTimeout(() => {
-        this.setData({
-          loading: false,
-          finished: true // 这里设为true表示没有更多数据
-        });
-      }, 1000);
-    }
+      this.fetchListData();
+      // 开启分享好友和朋友圈功能
+      this.openShare();
+    },
+
+
+  // 开启分享好友和朋友圈功能
+  openShare(){
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    });
+  },
   },
 });

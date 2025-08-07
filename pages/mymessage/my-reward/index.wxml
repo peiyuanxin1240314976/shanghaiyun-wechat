@@ -1,7 +1,7 @@
 <view class="rewardBody">
   <!-- 选项卡 -->
   <view>
-    <t-tabs defaultValue="{{'全部'}}" bind:change="onTabsChange" bind:click="onTabsClick" t-class="custom-tabs">
+    <t-tabs defaultValue="{{active}}" bind:change="onTabsChange" bind:click="onTabsClick" t-class="custom-tabs">
     <t-tab-panel label="全部" value="全部" />
     <t-tab-panel label="点数" value="点数" />
     <t-tab-panel label="线索" value="线索" />
@@ -9,6 +9,6 @@
   </view>
 
 <view>
-  <t-rewardlist></t-rewardlist>
+  <t-rewardlist rewardValue="{{list}}"></t-rewardlist>
 </view>
 </view>

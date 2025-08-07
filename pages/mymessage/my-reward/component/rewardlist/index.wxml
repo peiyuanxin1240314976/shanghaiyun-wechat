@@ -1,9 +1,9 @@
 <view class="myreward">
-<block wx:for="{{list}}"   wx:key="title" class="flexBetween inner">
+<block wx:for="{{rewardValue}}"  wx:key="id" class="flexBetween inner">
   <view class="left" bindtap="toUrl" data-item="{{item}}">
   <view>
     <view class="imgView">
-      <image class="taskIcon"  src="{{item.icon}}"></image>
+      <image class="taskIcon"  src="{{icon}}"></image>
     </view>
     <view class="imgView">
       <view class="font1-4">{{item.title}}</view>
@@ -12,7 +12,7 @@
   </view>
 
   <view class="rewardNumberBody">
-    <view class="font1-4 rewardNumber">+{{item.description}}{{ item.type === '点数' ? '点' : '线索' }}</view>
+    <view class="font1-4 rewardNumber">+{{item.number}}{{ item.type === '点数' ? '点' : '线索' }}</view>
     <!-- <t-button 
       disabled="{{item.status === 1}}" 
       size="small" 

@@ -106,3 +106,31 @@
 .operation .operation-item:nth-child(4) {
   background: rgba(239, 244, 251, 1);
 }
+
+.shareBtn{
+  height: 72px;
+  width: 72px;
+  color: #333;
+  font-size: 20rpx;
+  border-width: 0 !important;
+  margin: 6rpx;
+  border-radius: 24rpx; 
+}
+
+.haoyou{
+  background: rgba(239, 251, 240, 1);
+}
+
+.pengyouquan{
+  background: rgba(239, 244, 251, 1);
+}
+
+wx-button::after{
+  border-width: 0 !important;
+}
+.shareImg{
+  margin-top: 28rpx;
+}
+.fontShare{
+  line-height: 20rpx;
+}

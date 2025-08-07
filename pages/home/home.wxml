@@ -4,24 +4,40 @@
 <view class="home-page-header">
 
   <view class="swiper-wrap">
-    <t-swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}" imageProps="{{swiperImageProps}}" list="{{imgSrcs}}" bind:click="navToActivityDetail" />
+    <t-swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}" imageProps="{{swiperImageProps}}" list="{{imgSrcs}}" bindtap="toUrl" aria-label="营销意向"  data-name="营销意向"/>
   </view>
 
   <!-- 通知栏 -->
   <view>
-    <t-notice-bar visible="{{true}}" prefixIcon="notification-filled" content="提示文字描述提示文字描述提示文字描述" t-class="external-class" t-class-prefix-icon="external-class-prefix-icon"></t-notice-bar>
+    <t-notice-bar visible="{{noticeSwitch}}" prefixIcon="notification-filled" content="{{noticeContent}}" t-class="external-class" marquee="{{marquee}}" t-class-prefix-icon="external-class-prefix-icon"></t-notice-bar>
   </view>
 
   <!-- 第三方跳转 -->
   <view class="tr">
+
+
     <view class="col">
-      <t-image src="{{imageSrc}}" mode="heightFix" width="72" height="72" aria-label="烛龙指数" />
+      <t-image src="{{imageSrc2}}" bindtap="toUrl" data-name="关键联系人" mode="heightFix" width="72" height="72" aria-label="关键联系人" />
+
+      <!-- 动态显示web-view -->
+       <web-view bindmessage="onMessage" wx:if="{{showWebView2}}" src="{{webViewUrl}}">
+      </web-view>
     </view>
     <view class="col">
-      <t-image src="{{imageSrc2}}" mode="heightFix" width="72" height="72" aria-label="关键联系人" />
+      <!-- bindtap="toUrl" -->
+          <!-- 图片触发 -->
+          <t-image class="expectation"  src="{{imageSrc}}" mode="heightFix" width="72" height="72" data-name="烛龙指数" aria-label="烛龙指数" />
+        
+          <!-- 动态显示web-view -->
+          <web-view  bindmessage="onMessage" wx:if="{{showWebView1}}" src="{{webViewUrl}}">
+          </web-view>
     </view>
     <view class="col">
-      <t-image src="{{imageSrc3}}" mode="heightFix" width="72" height="72" aria-label="营销意向" />
+      <!-- bindtap="toUrl" -->
+      <t-image class="expectation"  data-name="营销意向" src="{{imageSrc3}}" mode="heightFix" width="72" height="72" aria-label="营销意向" />
+
+      <web-view bindmessage="onMessage" wx:if="{{showWebView3}}" src="{{webViewUrl}}">
+      </web-view>
     </view>
   </view>
 
@@ -35,7 +51,7 @@
 
       <!-- 右侧搜索框 -->
       <view class="search-section">
-        <t-search t-class-input="t-search__input" t-class-input-container="t-search__input-container" placeholder="搜索" leftIcon="" disabled>
+        <t-search value="{{searchValue}}" t-class-input="t-search__input" t-class-input-container="t-search__input-container" placeholder="群关键字查询" leftIcon="" disabled>
           <t-icon slot="left-icon" prefix="wr" name="search" size="40rpx" color="#bbb" />
         </t-search>
       </view>
@@ -50,19 +66,21 @@
     <t-dropdown-item  bind:open="open" label="综合推荐" optionsColumns="3" options="{{multipleSelect.options}}" value="{{multipleSelect.value}}" bindchange="handleMultipleSelect"  />
   </t-dropdown-menu> -->
   <t-dropdown-menu>
-    <t-dropdown-item label="综合推荐" optionsColumns="3" options="{{multipleSelect.options}}" value="{{multipleSelect.value}}" bindchange="handleMultipleSelect" />
+    <t-dropdown-item label="综合推荐" optionsColumns="3" options="{{multipleSelect.options}}" defaultValue="{{multipleSelect.value}}" 
+    bind:change="onMultipleChange"
+    />
 
-    <t-dropdown-item bind:open="onAreaPicker" bind:close="closeAreaPicker" label="群区域">
+    <t-dropdown-item id="areaDropdownItem" bind:open="onAreaPicker" bind:close="closeAreaPicker" label="群区域">
     </t-dropdown-item>
 
-    <t-dropdown-item label="群人数" optionsColumns="3" options="{{tripleColumnsOptions}}" defaultValue="{{['option_1', 'option_2', 'option_3']}}" />
+    <t-dropdown-item label="群类型" optionsColumns="3" options="{{tripleColumnsOptions.options}}" defaultValue="{{tripleColumnsOptions.value}}" bind:change="onGroundChange"/>
   </t-dropdown-menu>
 
   <view class="areaPicker">
     <t-picker visible="{{areaVisible}}" value="{{areaValue}}" title="选择地区" cancelBtn="取消" confirmBtn="确认" usingCustomNavbar bindchange="onPickerChange" bindpick="onColumnChange" bindcancel="onPickerCancel">
       <t-picker-item options="{{provinces}}"></t-picker-item>
       <t-picker-item options="{{cities}}"></t-picker-item>
-      <t-picker-item options="{{counties}}"></t-picker-item>
+      <!-- <t-picker-item options="{{counties}}"></t-picker-item> -->
     </t-picker>
   </view>
 
@@ -73,24 +91,6 @@
 
 
 <view class="home-page-container">
-  <!-- <view class="home-page-tabs">
-    <t-tabs
-      t-class="t-tabs"
-      t-class-active="tabs-external__active"
-      t-class-item="tabs-external__item"
-      defaultValue="{{0}}"
-      space-evenly="{{false}}"
-      bind:change="tabChangeHandle"
-    >
-      <t-tab-panel
-        wx:for="{{tabList}}"
-        wx:for-index="index"
-        wx:key="index"
-        label="{{item.text}}"
-        value="{{item.key}}"
-      />
-    </t-tabs>
-  </view> -->
 
   <goods-list wr-class="goods-list-container" goodsList="{{goodsList}}" bind:addground="goodListAddGroundHandle" />
   <!-- 加群弹出层 -->
@@ -99,7 +99,7 @@
       <view class="block">
         <view class="header">
           <!-- <view class="btn btn--cancel" aria-role="button"></view> -->
-          <view class="title">深圳信用优化交流群</view>
+          <view class="title">{{ groupName }}</view>
           <view class="btn btn--confirm" bind:tap="onClose">
             <t-icon name="{{closeIcon}}" size="24rpx" data-name="{{closeIcon}}" />
           </view>
@@ -108,17 +108,17 @@
         <view class="groundBody">
           <view class="groundAdress">
             <t-icon name="location" size="24rpx" data-name="location" />
-            深圳市<text class="groundPeopleName">350</text>人
+            {{ city }}<text class="groundPeopleName">{{ peopleNum }}</text>人
           </view>
           <view class="groundAction">
             <t-notice-bar visible="{{true}}" theme="success" content="二维码已经过安全验证，请放心扫描！" t-class="external-class" t-class-prefix-icon="external-class-prefix-icon"></t-notice-bar>
 
           </view>
           <view class="groundName">
-            群聊：深圳信用优化交流群
+            群聊：{{ groupName }}
           </view>
           <view class="groundQr">
-            <t-image src="{{imageSrc2}}" mode="aspectFill" width="72" height="72" aria-label="二维码" />
+            <t-image src="{{qrcode}}"  show-menu-by-longpress mode="aspectFill" width="72" height="72" aria-label="二维码" />
           </view>
           <view class="groundMessage">
             (长按二维码识别添加群聊)
@@ -128,14 +128,22 @@
           </view>
 
           <view class="button-ground">
-            <t-button icon="usergroup-filled"  block size="medium" t-class="group-btn" variant="outline">群已满</t-button>
-            <t-button  icon="error-triangle-filled" block size="medium" t-class="group-btn" variant="outline" disabled>群失效</t-button>
+            <t-button icon="usergroup-filled"  block size="medium" t-class="group-btn" variant="outline" bindtap="feedback" data-name="群已满">群已满</t-button>
+            <t-button  icon="error-triangle-filled" block size="medium" t-class="group-btn" variant="outline" bindtap="feedback" data-name="群失效">群失效</t-button>
           </view>
         </view>
       </view>
     </t-popup>
   </view>
 
+  <!-- <view class="plogin flexBetween" wx:if="{{!isGetToken}}">
+  <view class="logintext1">
+    立即登录，发布我的群消息！
+  </view>
+  <t-button size="small" variant="text" class="logintext2" bind:tap="toLogin">
+    立即登录
+  </t-button>
+  </view> -->
 
 
   <load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />

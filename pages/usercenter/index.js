@@ -1,3 +1,4 @@
+import http from '../../utils/http';
 import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
 import Toast from 'tdesign-miniprogram/toast/index';
 
@@ -20,12 +21,27 @@ const menuData = [
       url: '',
       type: 'task',
     },
-    {
-      title: '分享给好友',
-      tit: '',
-      url: '',
-      type: 'share',
-    },
+    // {
+    //   title: '分享给好友',
+    //   tit: '',
+    //   url: '',
+    //   type: 'share',
+    // },
+    // {
+    //   title: '客服热线',
+    //   tit: '',
+    //   url: '',
+    //   type: 'service',
+    // },
+    // {
+    //   title: '关注公众号',
+    //   tit: '',
+    //   url: '',
+    //   type: 'follow_with_interest',
+    // },
+  ];
+
+  const menuData2 = [
     {
       title: '客服热线',
       tit: '',
@@ -39,6 +55,9 @@ const menuData = [
       type: 'follow_with_interest',
     },
   ];
+
+
+
 const groundStatisticsList = [
   {
     title:"今日进群",
@@ -61,13 +80,13 @@ const groundStatisticsList = [
 const getDefaultData = () => ({
   // showMakePhone: false,
   userInfo: {
-    avatarUrl: '',
-    nickName: '正在登录...',
+    avatarUrl: wx.getStorageSync('userInfo').avatarUrl,
+    nickName: wx.getStorageSync('userInfo').nickName,
     phoneNumber: '',
   },
   menuData,
+  menuData2,
   customerServiceInfo: {},
-  currAuthStep: 1,
   showKefu: true,
   versionNo: '',
   groundStatisticsList,
@@ -90,6 +109,71 @@ Page({
 
   init() {
     // this.fetUseriInfoHandle();
+    this.loadHomePage();
+    this.getUserInfo();
+  },
+
+  getUserInfo(e){
+    let info = wx.getStorageSync('wechatUser');
+    console.log(info,'我是用户信息');
+  },
+
+
+onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '首页'
+        })
+      }, 100)
+    })
+    return {
+      title: '首页',
+      path: '/page/home/home',
+      promise 
+    }
+  },
+
+
+  loadHomePage(e){
+    wx.stopPullDownRefresh();
+         // 调用封装的接口
+         http({
+          url: '/api/wx/user/joinInfo',
+          method: 'GET'
+        })
+          .then(res => {
+            console.log('我的页面请求成功:', res );
+            const updatedList = [
+              {
+                title: "今日进群",
+                number: res.data.todayJoin || "0", 
+              },
+              {
+                title: "累计进群",
+                number: res.data.totalJoin || "0",
+              },
+              {
+                title: "今日发布群",
+                number: res.data.todayIssue || "0",
+              },
+              {
+                title: "发布群",
+                number: res.data.totalIssue || "0",
+              },
+            ];
+
+            this.setData({
+              groundStatisticsList: updatedList
+            });
+          })
+          .catch(err => {
+            if(err.code === 401){
+              this.clearStorage();
+            }
+            console.error('请求失败:', err);
+            wx.showToast({ title: '加载失败', icon: 'none' });
+          });
   },
 
 
@@ -99,7 +183,6 @@ Page({
     switch (type) {
       case 'myGround': {
         wx.navigateTo({ url: '/pages/mymessage/post-ground/index' });
-        // wx.navigateTo({ url: '/pages/user/address/list/index' });
         break;
       }
       case 'myReward': {
@@ -154,12 +237,15 @@ Page({
   },
 
   gotoUserEditPage() {
-    const { currAuthStep } = this.data;
-    if (currAuthStep === 2) {
-      wx.navigateTo({ url: '/pages/user/person-info/index' });
-    } else {
-      this.fetUseriInfoHandle();
-    }
+    // 这一块写签到逻辑
+
+
+    // const { currAuthStep } = this.data;
+    // if (currAuthStep === 2) {
+    //   wx.navigateTo({ url: '/pages/user/person-info/index' });
+    // } else {
+    //   this.fetUseriInfoHandle();
+    // }
   },
 
   getVersionInfo() {
@@ -169,4 +255,12 @@ Page({
       versionNo: envVersion === 'release' ? version : envVersion,
     });
   },
+
+  clearStorage(){
+    wx.clearStorageSync(); // 同步方法
+    wx.switchTab({
+      url: '/pages/home/home'
+    });
+  }
+
 });

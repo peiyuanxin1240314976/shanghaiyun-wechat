@@ -9,6 +9,7 @@
     "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
     "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker",
     "t-upload": "tdesign-miniprogram/upload/upload",
-    "t-image": "tdesign-miniprogram/image/image"
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog"
   }
 }

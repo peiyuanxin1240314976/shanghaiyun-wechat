@@ -8,7 +8,7 @@ const allGoods = [
     saasId: '88888888',
     storeId: '1000',
     spuId: '0',
-    title: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
+    title: '中安创达',
     primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
     images: [
       'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
