@@ -20,8 +20,8 @@
       <t-image src="{{imageSrc2}}" bindtap="toUrl" data-name="关键联系人" mode="heightFix" width="72" height="72" aria-label="关键联系人" />
 
       <!-- 动态显示web-view -->
-       <web-view bindmessage="onMessage" wx:if="{{showWebView2}}" src="{{webViewUrl}}">
-      </web-view>
+       <!-- <web-view bindmessage="onMessage" wx:if="{{showWebView2}}" src="{{webViewUrl}}">
+      </web-view> -->
     </view>
     <view class="col">
       <!-- bindtap="toUrl" -->

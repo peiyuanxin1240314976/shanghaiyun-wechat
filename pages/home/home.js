@@ -514,6 +514,38 @@ encodeRedirectUri(originalUrl) {
   return `${baseUrl}?${newParams.join('&')}`;
 },
 
+convertAuthUrlToMiniProgramParams(authUrl) {
+  // 移除 https://open.weixin.qq.com/connect/oauth2/authorize? 前缀
+  const prefixToRemove = 'https://open.weixin.qq.com/connect/oauth2/authorize?';
+  if (!authUrl.startsWith(prefixToRemove)) {
+    return '';
+  }
+  
+  const paramsStr = authUrl.substring(prefixToRemove.length);
+  const params = paramsStr.split('&');
+  
+  let processedParams = [];
+  for (const param of params) {
+    const equalIndex = param.indexOf('=');
+    if (equalIndex === -1) {
+      processedParams.push(param);
+      continue;
+    }
+    
+    const key = param.substring(0, equalIndex);
+    const value = param.substring(equalIndex + 1);
+    
+    if (key === 'redirect_uri') {
+      // 对 redirect_uri 进行URL编码
+      processedParams.push(`${key}=${encodeURIComponent(decodeURIComponent(value))}`);
+    } else {
+      processedParams.push(param);
+    }
+  }
+  
+  return `pages/home/home?${processedParams.join('&')}`;
+},
+
 
   // 跳转登录页面
   toUrl(e){
@@ -547,12 +579,18 @@ encodeRedirectUri(originalUrl) {
 
           })
         }else if(e.currentTarget.dataset.name === '关键联系人'){
-          // console.log(this.encodeRedirectUri(res.data.authorizationUrl) );
-          // debugger
-          this.setData({
-            showWebView2:true,
-            webViewUrl:this.encodeRedirectUri(res.data.authorizationUrl) 
-          })
+          console.log(this.encodeRedirectUri(res.data.authorizationUrl) );
+          const dynamicPath = this.convertAuthUrlToMiniProgramParams(res.data.authorizationUrl);
+          wx.navigateToMiniProgram({
+            appId: 'wxca91dfb8058b0cd5',
+            path: dynamicPath,
+            success: function(res) {
+              console.log('跳转成功');
+            },
+            fail: function(res) {
+              console.log('跳转失败', res);
+            }
+          });
         }else{
           this.setData({
             showWebView3:true,
